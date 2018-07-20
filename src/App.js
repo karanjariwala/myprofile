@@ -51,7 +51,7 @@ const initialContent={
       tech:'React- Redux',
       details:`Search Repository name and select the top contributors to see the list.
       Brushing up Flex-box, Redux-saga, React-Router and Styled-Components.
-      Experimenting with Compund components Design pattern.
+      Experimenting with Compound Components Design pattern.
       `,
 
       demo:'https://karanjariwala.github.io/git-repo-app/',
