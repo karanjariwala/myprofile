@@ -12,16 +12,18 @@ const MenuItem = ({name, children, display,activeItem, handleItemClick}) => (
 const Nav = (props) => (
     <div style={{width:'100%', textAlign:'center', maxHeight:'75px', position:'fixed', zIndex:'9000'}}>
       <Menu  compact icon='labeled'>
+        <MenuItem name='Home' display='Home' {...props} >
+          <Icon name='home' />
+        </MenuItem>
+
+      
+
         <MenuItem name='Summary' display='Summary' {...props} >
           <Icon name='male' />
         </MenuItem>
 
         <MenuItem name='Work' display='Work' {...props} >
           <Icon name='code' />
-        </MenuItem>
-
-        <MenuItem name='Projects' display='Projects' {...props} >
-          <Icon name='codepen' />
         </MenuItem>
    
       </Menu>

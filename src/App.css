@@ -8,15 +8,17 @@
 
 
 .contentWrapper{
-    min-height: calc(100vh - 75px);
+    min-height: 100vh;
 
     margin: 0 auto;
     width:90%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
+    padding-top: 100px;
+
     padding-bottom: 20px;
-    padding-top: 70px;
+    /* padding-top: 70px; */
 
 }
 
@@ -45,3 +47,50 @@
     margin: 10px!important;
 }
 
+.ui.fluid.card {
+    margin-top: 50px;
+    max-width: 600px;
+}
+
+
+
+.homeSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    padding: 100px 50px;
+
+}
+
+
+
+
+
+.ui.text.container {
+    font-size: 30px;
+    color: white;
+    margin-top :50px;
+    line-height: 4;
+    letter-spacing: 2px;
+    font-size: 30px;
+
+
+
+}
+
+.ui.inverted.left.aligned.header {
+    margin-bottom: 50px;
+}
+
+.ui.text.container .ui.circular.button {
+     margin-left: 6px; 
+    margin-right: 6px;
+    padding-bottom: 7px;
+    padding-top: 3px;
+    font-size: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}

@@ -1,21 +1,22 @@
 import React, { Component } from 'react';
 import scrollToComponent from 'react-scroll-to-component';
-import {Grid} from 'semantic-ui-react';
+import {Grid, Icon, Button} from 'semantic-ui-react';
 import Nav from './Nav.jsx';
-import Summary from './Summary.jsx';
+import Home from './Home';
 import Work from './Work.jsx';
 import Projects from './Projects';
 import './App.css';
 import ContentWrapper from './ContentWrapper';
 import * as Img from './DP.jpg';
+import Summary from './Summary';
 
 
 
 const initialContent={
-  summary:{
+  home:{
     name:'Karan Jariwala',
     image:Img,
-    role:'JavaScript Enthusiast, UI Developer at Practo, working on React',
+    role:'Software Engineer - UI (Front-end) at Rippling, ex - Practo.',
     skills:['Javascript', 'React', 'Redux', 'CSS-in-JS', 'CSS', 'SCSS',' WebPack '],
     email:'karanjariwala@gmail.com ',
     phone:'+91-9790706592',
@@ -26,23 +27,41 @@ const initialContent={
     stackOverflow:'https://stackoverflow.com/users/4865194/karan-jariwala?tab=profile',
 
   },
+  summary: {
+    content:[
+    `Software Engineer and a problem-solver specialising in front-end (UI) development.`,
+    `3+ Years of experience in creating reusable, mobile friendly and visually appealing user-interfaces using React JS and Java-script.`,
+  
+
+  ],
+  twitter:'https://twitter.com/karanjariwala47',
+  medium:'',
+  stackOverflow:'https://stackoverflow.com/users/4865194/karan-jariwala?tab=profile',
+
+},
   work:[
     {
+      company:'Rippling (People Center Inc.)',
+      details:[` Working on front-end features, redesign and re-write in Rippling web-app using React JS.`,
+      `Creating reusable components in our component library, upgrading and optimise front-end.`],
+      duration:'2018, Nov - Present',
+      role:'Software Engineer - UI (Front-end)'
+    },
+    {
       company:'Practo Technologies',
-      details:[` Working on user interface of Scheduling module of our Insta Health Management System.`,
-      ` This is a re-write and enhancement of our calendar application from scratch.`,` We have re-
-      written it using React stack with additional features and screens enhancing the user-experience.`],
-      duration:'2017, Dec - present',
-      appreciations: 'Received Super Performer',
-      role:'UI developer - Software Engineer'
+      details:[`Worked on front-end of doctor-scheduler web-app and dynamic registration form builder app using React, Redux, Saga and Styled-Components.`,
+      `Upgraded front-end infra to web-pack 4, moved components to render-props pattern instead of HOCs and created an in house component library based on atomic principles.`],
+      duration:'2017, Dec - 2018, Nov',
+      appreciations: 'Received the super performer (highest) rating.',
+      role:'Software Engineer - UI'
     },
     {
       company:'Cerner Health-care',
-      details:['Worked on Gamification project using react, redux,scss.' ,
-      'Worked on Resourcing web application UI as innovation center project for consulting org to automate resource allocation using past experience/work profile. '],
-      appreciations: 'Received Rising Star award and the Night on the town award.',
-      duration:'2015 JULY -2017 JULY ',
-      role:'Java-script developer - Engineer',
+      details:['Worked on front-end of gamification project using React, Redux, SCSS.' ,
+      'Worked on resourcing web application as an innovation center project for consulting organisation to automate resource allocation using past experience/work profile.'],
+      appreciations: 'Received rising star award and the night on the town award.',
+      duration:'2015, JULY - 2017, JULY ',
+      role:'Engineer - Front-end',
      }
   ],
   personalProjects:[
@@ -132,7 +151,7 @@ const initialContent={
 
 class App extends Component {
   state = {
-     activeItem:'Summary',
+     activeItem:'Home',
     content:initialContent,
     }
 
@@ -140,19 +159,19 @@ class App extends Component {
       document.addEventListener('scroll', () => {
      
         if(window.scrollY>3&&window.scrollY<500){
+          this.setState({activeItem:'Home'})
+        }
+        if(window.scrollY>500 && window.screenY<1700){
           this.setState({activeItem:'Summary'})
         }
-        if(window.scrollY>500&& window.screenY<1000){
+        if(window.scrollY>1700){
           this.setState({activeItem:'Work'})
-        }
-        if(window.scrollY>1000){
-          this.setState({activeItem:'Projects'})
         }
       });
     }
 
   handleItemClick = (e, { name }) => {
-console.log(this.refs)
+
     scrollToComponent(this[name], {
       offset: -75,
       align: 'top',
@@ -164,17 +183,21 @@ console.log(this.refs)
       <div className='wrapper'>
       <Nav activeItem={this.state.activeItem} handleItemClick={this.handleItemClick}/>
     
-      <ContentWrapper ref={(el) => { this.Summary = el; }}>
-      <Summary summary={this.state.content.summary} />
+      <ContentWrapper ref={(el) => { this.Home = el; }}>
+        <Home summary={this.state.content.home} />
       </ContentWrapper>
+      <ContentWrapper ref={(el) => { this.Summary = el; }}>
+        <Summary summary={this.state.content.summary} />
+      </ContentWrapper>
+      
     
       <ContentWrapper ref={(el) => { this.Work = el; }}>
-      <Work work={this.state.content.work}/>
+        <Work work={this.state.content.work}/>
       </ContentWrapper>
      
-      <ContentWrapper ref={(el) => { this.Projects = el; }} >
+      {/* <ContentWrapper ref={(el) => { this.Projects = el; }} >
         <Projects projects={this.state.content.personalProjects}/>
-        </ContentWrapper>
+        </ContentWrapper> */}
 
       </div>
     );
