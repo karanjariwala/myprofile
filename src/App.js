@@ -49,8 +49,8 @@ const initialContent={
     },
     {
       company:'Practo Technologies',
-      details:[`Worked on front-end of doctor-scheduler web-app and dynamic registration form builder app using React, Redux, Saga and Styled-Components.`,
-      `Upgraded front-end infra to web-pack 4, moved components to render-props pattern instead of HOCs and created an in house component library based on atomic principles.`],
+      details:[`Worked on front-end of doctor-scheduler web-app and registration form builder app using React, Redux, Saga and Styled-Components.`,
+      `Upgraded web-pack, moved components to render-props pattern and created an in house component library based on atomic principles.`],
       duration:'2017, Dec - 2018, Nov',
       appreciations: 'Received the super performer (highest) rating.',
       role:'Software Engineer - UI'
